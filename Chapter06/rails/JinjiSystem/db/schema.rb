@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180103103908) do
+ActiveRecord::Schema.define(version: 20180103153134) do
 
   create_table "shains", force: :cascade do |t|
     t.string "name"
-    t.string "yakushoku"
+    t.string "type"
     t.integer "kihonkyu"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
