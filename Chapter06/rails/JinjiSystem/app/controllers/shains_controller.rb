@@ -28,8 +28,8 @@ class ShainsController < ApplicationController
 
     respond_to do |format|
       if @shain.save
-        format.html { redirect_to @shain, notice: 'Shain was successfully created.' }
-        format.json { render :show, status: :created, location: @shain }
+        format.html { redirect_to @shain.becomes(Shain), notice: 'Shain was successfully created.' }
+        format.json { render :show, status: :created, location: @shain.becomes(Shain) }
       else
         format.html { render :new }
         format.json { render json: @shain.errors, status: :unprocessable_entity }
@@ -42,8 +42,8 @@ class ShainsController < ApplicationController
   def update
     respond_to do |format|
       if @shain.update(shain_params)
-        format.html { redirect_to @shain, notice: 'Shain was successfully updated.' }
-        format.json { render :show, status: :ok, location: @shain }
+        format.html { redirect_to @shain.becomes(Shain), notice: 'Shain was successfully updated.' }
+        format.json { render :show, status: :ok, location: @shain.becomes(Shain) }
       else
         format.html { render :edit }
         format.json { render json: @shain.errors, status: :unprocessable_entity }
@@ -72,6 +72,6 @@ class ShainsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def shain_params
-      params.require(:shain).permit(:name, :yakushoku, :kihonkyu)
+      params.require(:shain).permit(:name, :type, :kihonkyu)
     end
 end
